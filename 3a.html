@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>3a</title>
+</head>
+  <body>
+     <p>Caculate 10% text of your income:</p>
+     <input id = "input" type='text' Placeholder="Enter your income">
+     <button onclick="calculate()">Calculate</button>
+     <p id="id"></p>
+   <script>
+     function calculate(){
+     let income = parseFloat(document.getElementById("input").value); 
+     document.getElementById('id').innerText = "Text $:"+income*(10/100).toFixed(2);
+     }
+   </script>
+  </body>
+</html>

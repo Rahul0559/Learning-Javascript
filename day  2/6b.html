@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>6b</title>
+</head>
+<body>
+
+  <h1 style="text-align: center;">Calculate your bill</h1>
+
+  <p>Enter your item name</p>
+  <input type="text" placeholder="Enter your item name" id="itemInput">
+
+  <p>Enter price of your item</p>
+  <input type="number" placeholder="Enter price" id="priceInput">
+
+  <br><br>
+  <button onclick="add()">Add</button>
+  <button onclick="calculate()">Calculate</button>
+
+  <div id="list"></div>
+  <p id="total"></p>
+
+  <script>
+    // Arrays to store item names and prices
+    let itemNames = [];
+    let itemPrices = [];
+
+    function add() {
+      let item = document.getElementById("itemInput").value;
+      let price = parseFloat(document.getElementById("priceInput").value);
+
+      if (item && !isNaN(price)) {
+        itemNames.push(item);
+        itemPrices.push(price);
+
+        // Show updated list
+        let listHTML = "<ul>";
+        for (let i = 0; i < itemNames.length; i++) {
+          listHTML += `<li>${itemNames[i]} - ₹${itemPrices[i].toFixed(2)}</li>`;
+        }
+        listHTML += "</ul>";
+        document.getElementById("list").innerHTML = listHTML;
+
+        // Clear input fields
+        document.getElementById("itemInput").value = "";
+        document.getElementById("priceInput").value = "";
+      } else {
+        alert("Please enter a valid item name and price.");
+      }
+    }
+
+    function calculate() {
+      let total = 0;
+      for (let price of itemPrices) {
+        total += price;
+      }
+
+      document.getElementById("total").innerText = `Total (${itemNames.length} items): ₹${total.toFixed(2)}`;
+    }
+  </script>
+
+</body>
+</html>

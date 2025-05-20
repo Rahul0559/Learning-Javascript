@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>2a</title>
+  </head>
+   <body>
+      <p>Enter your name:</p>
+      <input type="text" placeholder="Enter your name" id = "input">
+      <button onclick="Concatinat()">Enter</button>
+      <p id ="p"></p>
+      <script>
+         function Concatinat(){
+            let name = document.getElementById("input").value;
+            document.getElementById("p").innerText ="My name is "+name;
+        }
+     </script>
+  </body>
+</html>

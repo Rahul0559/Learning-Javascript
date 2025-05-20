@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bill Calculator</title>
+  </head>
+  <body>
+    <h1 style="text-align:center;">Calculate your bill</h1>
+
+    <p>Enter your item</p>
+    <input type="text" placeholder="Enter item Name" id="inputiteamname">
+
+    <p>Enter your item price</p>     
+    <input type="number" placeholder="Enter price" id="inputiteam">
+
+    <button onclick="add()">Add</button>
+
+    <div id="div"></div>
+    <button onclick="Calculate()">Calculate</button>
+    
+
+    <p>Tax Price: <span id="totaltext"></span></p>
+    <p>Total Price: <span id="totalprice"></span></p>
+
+    <script>
+      let iteams = [];
+      let iteamsprice = [];
+
+      function add() {
+        let iteamname = document.getElementById("inputiteamname").value;
+        let iteamprice = parseFloat(document.getElementById("inputiteam").value);
+
+        if (iteamname && !isNaN(iteamprice)) {
+          iteams.push(iteamname);
+          iteamsprice.push(iteamprice);
+
+          let htmlP = "";
+          for (let i = 0; i < iteams.length; i++) {
+            htmlP += `<p>Item ${i + 1}: ${iteams[i]} - $${iteamsprice[i]}</p>`;
+          }
+          document.getElementById("div").innerHTML = htmlP;
+        }
+      }
+
+      function Calculate() {
+        let total = 0;
+        for (let i = 0; i < iteamsprice.length; i++) {
+          total += iteamsprice[i];
+        }
+
+        let tax = total * 0.10;
+
+        document.getElementById("totaltext").innerText = `$${tax.toFixed(2)}`;
+        document.getElementById("totalprice").innerText = `$${total.toFixed(2)}`;
+      }
+    </script>
+  </body>
+</html>

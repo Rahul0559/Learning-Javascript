@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Use of Conditional Statement</title>
+</head>
+<body>
+    <button onclick="play('stone')">Stone</button>
+    <button onclick="play('paper')">Paper</button>
+    <button onclick="play('scissors')">Scissors</button>
+
+    <p id="output"></p>
+
+    <script>
+        function play(playerMove) {
+            let moves = ['stone', 'paper', 'scissors'];
+            let random = Math.floor(Math.random() * 3);
+            let computerMove = moves[random];
+            let resultText = '';
+
+            if (playerMove === computerMove) {
+                resultText = "Tie!";
+            } else if (
+                (playerMove === 'stone' && computerMove === 'scissors') ||
+                (playerMove === 'paper' && computerMove === 'stone') ||
+                (playerMove === 'scissors' && computerMove === 'paper')
+            ) {
+                resultText = "You win!";
+            } else {
+                resultText = "You lose!";
+            }
+
+            document.getElementById("output").innerText =
+                `You chose ${playerMove}, Computer chose ${computerMove}. ${resultText}`;
+        }
+    </script>
+</body>
+</html>

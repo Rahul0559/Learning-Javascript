@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Day 5</title>
+   <style>    
+       body{
+         background:rgb(51, 153, 255);
+       } 
+      .Main-div{
+       display: flex; 
+       align-items: center; 
+       justify-content: center;
+       height: 500px; 
+       width:1000px;
+       border-style:solid;
+       border-width:1px;
+       margin-top:50px;
+       margin-left:200px;
+       border-radius:10px;
+       background:rgb(255, 195, 0 );
+       box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+     }
+     button{
+       width:100px;
+       height:40px;
+       border-radius:10px;
+       border-radius:line;
+       border-width:1px;
+       color:red;
+       background-color:rgb(255, 87, 51);
+     }
+   </style>
+  </head>
+  <body>
+
+  <div class="Main-div">
+
+    <button 
+      style="margin-right:10px;" 
+      onclick="Play('Stone')"
+    >Stone</button>
+
+    <button 
+      style="margin-right:10px;" 
+      onclick="Play('Paper')"
+    >Paper</button>
+
+    <button 
+      style="margin-right:10px;" 
+      onclick="Play('Scissor')"
+    >Scissor</button>
+
+  </div>
+
+  <script>
+    function Play(PlayerMove){
+      let arr = ["Stone", "Paper", "Scissor"];
+      let random = Math.floor(Math.random() * 3); 
+
+      let ComputerMove = arr[random];
+      let result = "";
+
+      let playerMove = PlayerMove.toLowerCase();
+      let computerMove = ComputerMove.toLowerCase();
+
+      if (ComputerMove === PlayerMove) {
+        result = "Tie";
+      }
+      else if (
+        (playerMove === 'stone' && computerMove === 'scissor') ||
+        (playerMove === 'paper' && computerMove === 'stone') ||
+        (playerMove === 'scissor' && computerMove === 'paper')
+      ) {
+        result = "You Win";
+      } else {
+        result = "You Lose";
+      }
+      alert(`Player move: ${PlayerMove} Computer move: ${ComputerMove} result: ${result}`);
+    }
+  </script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     <title>Day 7</title>
+     <style>
+        .yt{
+          font-family:Arial;
+          font-size:15px;  
+         }
+         #buttoniput {
+         width: 100px;
+         height: 30px;
+         border-radius: 5px;
+         color: white;
+         background-color: black;
+        }
+
+       #buttoniput:hover {
+       color: black;
+       background-color: white;
+       cursor: pointer;
+      }
+   </style>
+  </head>
+   <body>
+     <p class ="yt">Youtube Subscribe Button</p>
+     <button onclick= "fun()" id ="buttoniput">Subscribe</button>
+
+     <script>
+       function fun(){
+         let buttoninput = document.getElementById('buttoniput').innerText;
+         console.log(buttoninput);
+         if(buttoninput === "Subscribe"){
+             document.getElementById('buttoniput').innerText = "Subscribed";
+        }
+        else{
+           document.getElementById('buttoniput').innerText = "Subscribe";
+        }
+       }
+    </script>
+   </body>
+</html>

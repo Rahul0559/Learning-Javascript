@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>2 day 9</title>
+   </head>
+   <body>
+     <button class ="js-button" >Click</button>
+     
+     <script>
+       let flag = 1;
+       let functionVariable = function fun(){console.log("Hello")};
+       functionVariable();
+
+       const object1={
+          nums:2,
+          fun:()=>{
+            console.log("Hello frome object1");
+          }
+       };
+       object1.fun();
+
+      setTimeout(()=>{
+         console.log("Time out");
+      },3000);
+      console.log("time");
+     let intervalid; 
+     let buttonElement = document.querySelector('.js-button');
+     buttonElement.addEventListener('click',()=>{
+         if(flag === 1){
+            intervalid = setInterval(()=>{
+               console.log("Interval running...");
+
+           },1000);
+           flag = 0;
+         }
+         else{
+           console.log("Interval already started.");
+           clearInterval(intervalid);
+           flag = 1;
+        }
+     });
+   </script>
+  </body>
+</html>
